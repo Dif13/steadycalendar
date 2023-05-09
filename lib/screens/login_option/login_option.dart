@@ -1,13 +1,15 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:steadycalendar/components/sc_text_button.dart';
 import 'package:steadycalendar/components/sc_image_button.dart';
 import 'package:steadycalendar/config/styles.dart';
-import 'package:steadycalendar/screens/cal_pager/cal_pager.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class LoginOptions extends StatelessWidget {
   static const String routeName = '/intro/login_options';
 
-  const LoginOptions({super.key});
+  const LoginOptions({key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,9 @@ class LoginOptions extends StatelessWidget {
   }
 
   Future _signupTapped(BuildContext context) async {
-    //TODO add autentfication
-    Navigator.of(context).pushNamed(CalPager.routeName);
+    await Supabase.instance.client.auth.signInWithOAuth(
+      Provider.google,
+      redirectTo: kIsWeb ? null : env['SUPABASE_AUTH_CALLBACK']!,
+    );
   }
 }

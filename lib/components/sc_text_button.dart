@@ -12,11 +12,11 @@ class SCTextButton extends StatelessWidget {
 //! {} - in functions - it`s optional arg!
   const SCTextButton(
     this.child, {
-    super.key,
+    Key? key,
     this.textColor,
     this.backgroudColor,
     this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

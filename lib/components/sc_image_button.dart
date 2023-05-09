@@ -8,7 +8,11 @@ class SCImageButton extends StatelessWidget {
   final String text;
 
 //! {} - in functions - it`s optional arg!
-  const SCImageButton(this.assetName, this.text, {super.key});
+  const SCImageButton(
+    this.assetName,
+    this.text, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

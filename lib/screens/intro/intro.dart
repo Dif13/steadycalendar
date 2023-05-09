@@ -5,7 +5,9 @@ import 'package:steadycalendar/screens/login_option/login_option.dart';
 class Intro extends StatelessWidget {
   static const String routeName = '/intro';
 
-  const Intro({super.key});
+  const Intro({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
