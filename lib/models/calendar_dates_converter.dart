@@ -14,7 +14,7 @@ class CalendarDatesConverter
       return datesHash;
     }
 
-    json.forEach((value) {
+    for (var value in json) {
       final dtMap = value as Map<String, dynamic>;
       if (dtMap.values.isNotEmpty) {
         final dateString = dtMap.values.first;
@@ -22,7 +22,7 @@ class CalendarDatesConverter
 
         datesHash[date.hashCode] = date;
       }
-    });
+    }
 
     return datesHash;
   }

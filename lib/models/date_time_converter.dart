@@ -1,6 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:steadycalendar/models/calendar_date.dart';
-import 'calendar.dart';
 import 'calendar_date.dart';
 
 class DateTimeConverter implements JsonConverter<DateTime, String> {
